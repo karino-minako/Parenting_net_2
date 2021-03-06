@@ -1,2 +1,17 @@
-<h1>Relationships#followed</h1>
-<p>Find me in app/views/relationships/followed.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 col-sm-12">
+      <h3><%= @user.name %> さんのフォロワー一覧</h3>
+      <% if @users.count > 0 %>
+        <%= render 'users/index', users: @users %>
+      <% else %>
+        <p>会員はいません</p>
+      <% end %>
+    </div>
+
+    <div class="col-md-3 col-sm-12 search">
+      <%= render 'posts/search' %>
+    </div>
+
+  </div>
+</div>

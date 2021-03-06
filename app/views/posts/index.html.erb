@@ -1,2 +1,18 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 col-sm-12">
+      <div class="flash_message h5"><%= flash[:post] %></div>
+      <% if params[:tag_name].nil? %>
+        <h3>投稿一覧</h3>
+      <% else %>
+        <h2>"<%= params[:tag_name] %>" タグのついた投稿一覧</h2>
+      <% end %>
+      <%= render 'posts/index', posts: @posts %>
+      <%= paginate @posts %>
+    </div>
+
+    <div class="col-md-3 col-sm-12">
+      <%= render 'posts/sidebar', tags: @tags, post_like_ranks: @post_like_ranks %>
+    </div>
+  </div>
+</div>

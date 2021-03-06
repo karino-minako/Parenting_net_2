@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+      <h4>会員の方はこちらからログイン</h4>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :メールアドレス, class: "col-xs-12 col-md-8 col-sm-8 col-lg-8" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :パスワード, class: "col-xs-12 col-md-8 col-sm-8 col-lg-8" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "ログイン", class: 'btn btn-primary col-xs-12'%>
+        </div>
+      <% end %>
+      <h4>登録がお済みでない方</h4>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

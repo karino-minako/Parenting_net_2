@@ -1,2 +1,44 @@
-<h1>Questions#edit</h1>
-<p>Find me in app/views/questions/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 col-sm-12">
+      <%= render 'layouts/errors', obj: @question %>
+      <h3>質問編集</h3>
+      <%= form_with model: @question, local: true do |f| %>
+        <div class="field">
+          <%= f.label :タイトル %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :質問されている写真 %>
+          <% if @question.image != nil %>
+            <div class="image">
+              <%= attachment_image_tag @question, :image %><br>
+            </div>
+          <% end %>
+          <%= f.label :写真 %>
+          <%= f.attachment_field :image %>
+        </div>
+
+        <div class="field">
+          <%= f.label :内容 %>
+          <%= f.text_area :body, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :tag_list, 'タグ（タグはスペース区切り・１つのタグに対して６文字以内で入力してください）' %>
+          <%= f.text_field :tag_list, value: @question.tag_list.join(' '), class: "form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit '変更する', class: 'btn btn-primary col-xs-12'%>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-3 col-sm-12 search">
+      <%= render 'posts/search' %>
+    </div>
+
+  </div>
+</div>

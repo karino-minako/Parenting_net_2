@@ -1,2 +1,62 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 col-sm-12">
+      <div class="flash_message h5"><%= flash[:post_show] %></div>
+      <h3>投稿詳細</h3>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th class="th-02">名前</th>
+            <th class="th-03">タイトル</th>
+            <th class="th-01"></th>
+            <th class="th-04">タグ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="post_<%= @post.id %>">
+            <%= render 'posts/show', post: @post %>
+          </tr>
+        </tbody>
+      </table>
+
+      <% if @post.image_id != nil %>
+        <div class="image">
+          <%= attachment_image_tag @post, :image %>
+        </div>
+      <% end %>
+      <div class="content-heading h5">内容</div>
+      <div class="blank"><%= simple_format @post.body %></div>
+      <% if @post.user.id == current_user.id %>
+        <div class="button-right">
+          <%= link_to "編集", edit_post_path(@post), class: 'button btn btn-warning' %>
+          <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'button btn btn-danger' %>
+        </div>
+      <% end %>
+      <div class="border"></div>
+      <div class="comment-answer h3">コメントする</div>
+      <div class="comment_errors">
+        <%= render 'layouts/errors', obj: @comment %>
+      </div>
+      <%= form_with model:[@post, @comment], data: {remote: true} do |f| %>
+        <%= f.text_area :comment, class: "form-control" %>
+        <div class="actions">
+          <%= f.submit '送信', class: 'btn btn-primary col-xs-12'%>
+        </div>
+      <% end %>
+      <div class="blank h3">コメント一覧</div>
+      <div class="blank">
+        <%= link_to "コメントをいいね順に並べる", post_path(likes_order: @post.id) %><br>
+        <br>
+        <%= link_to "コメントを新着順に順に並べる", post_path(@post.id) %>
+      </div>
+      <div class="comment_<%= @post.id %>">
+        <%= render 'posts/comments', comments: @comments.order(created_at: :desc).page(params[:page]) %>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-12">
+      <%= render 'posts/sidebar', tags: @tags, post_like_ranks: @post_like_ranks %>
+    </div>
+  </div>
+</div>
+

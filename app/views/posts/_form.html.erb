@@ -1,0 +1,25 @@
+<%= form_with model: obj, local: true do |f| %>
+  <div class="field">
+    <%= f.label :タイトル %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :写真 %>
+    <%= f.attachment_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :内容 %>
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tag_list, 'タグ（タグはスペース区切り・１つのタグに対して６文字以内で入力してください）' %>
+    <%= f.text_field :tag_list, value: obj.tag_list.join(' '), class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary col-xs-12'%>
+  </div>
+<% end %>

@@ -1,0 +1,222 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+main {
+  padding-top: 20px;
+}
+
+// 共通
+
+.flash_message {
+  color: #FF66FF;
+}
+.button {
+  display: inline-block;
+  margin: 5px;
+}
+.table {
+  width: 100%;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+// header
+
+header {
+  height: 70px;
+}
+.header_logo {
+  font-family:  'Caveat', cursive;
+  line-height: 70px;
+  font-size: 25px;
+}
+.navbar_right_icon {
+  margin-top: 10px;
+}
+
+// footer
+
+.footer {
+  text-align: right;
+}
+.footer-text {
+  margin: 30px 20px 10px 0px;
+}
+
+// top画面
+
+.top-heading {
+  text-align: center;
+}
+.top-table {
+  margin: 30px 0px 40px 0px;
+}
+
+// about画面
+
+.rogo {
+  font-size: 30px;
+  line-height: 70px;
+  margin-right: 30px;
+}
+.about_title {
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 2px #FF9999 solid;
+  margin-bottom: 20px;
+}
+.about_heading {
+  font-size: 20px;
+  border-bottom: 2px #FF9933 solid;
+  margin: 20px 0px 20px 0px;
+  font-weight: bold;
+}
+.indent {
+  text-indent: 1em;
+  padding-left: 2em;
+}
+.about_list {
+  margin: 10px 10px;
+  font-size: 20px;
+}
+.logo {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+// 入力フォーム
+
+.field {
+  padding-top: 20px;
+}
+.actions {
+  padding: 20px 0px 60px 0px;
+}
+
+// サイドバー
+
+.sidebar-heading {
+  padding: 20px 0px 10px 0px;
+  text-align: center;
+}
+.search {
+  text-align: center;
+}
+.search-actions {
+  padding: 20px 0px 40px 0px;
+}
+.search-text {
+  font-size: 24px;
+}
+
+//投稿・質問詳細画面
+
+.content-heading {
+  text-indent: 1em;
+  font-weight: bold;
+  margin: 20px 0px 10px 0px;
+}
+.blank {
+  margin-bottom: 20px;
+  word-wrap: break-word;
+}
+.comment-answer {
+  margin-top: 60px;
+}
+.border {
+  border-bottom: 2px #DDDDDD solid;
+}
+.image {
+  position: relative;
+}
+.image img {
+  display: block;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.button-right {
+  text-align: right;
+}
+
+// トップページのランキング,投稿一覧,質問一覧,会員詳細のテーブル
+
+.th-01 {
+  width: 10%;
+}
+.th-02 {
+  width: 20%;
+}
+.th-03 {
+  width: 30%;
+}
+.th-04 {
+  width: 40%;
+}
+
+// アイコン
+.fa-thumbs-up {
+  color: #003399;
+}
+.fa-smile {
+  color: orange;
+}
+
+// 会員詳細ページ
+.border-user {
+  border-bottom: 2px #DDDDDD solid;
+  margin: 20px 0px 20px 0px;
+}
+
+// チャットページ
+
+.chats_area {
+  .message {
+    max-width: 50%;
+    padding: 7px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 7px;
+  }
+  .my_message_area {
+    text-align: right;
+    .my_message {
+      background: rgba(30, 255, 0, 0.7);
+    }
+  }
+  .other_message {
+    background: #CDE3F1;
+  }
+  .message_time{
+    color: #aaa;
+  }
+  .text_center {
+    text-align: center;
+  }
+}
+
+//  通知ページ
+
+.text {
+  text-align: center;
+  color: #C0C0C0;
+}
+

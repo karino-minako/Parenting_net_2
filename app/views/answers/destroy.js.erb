@@ -1,0 +1,2 @@
+$(".question_<%= @question.id %>").html("<%= j( render 'questions/show', question: @question ) %>");
+$(".answer_<%= @question.id %>").html("<%= j( render 'questions/answers', answers: @question.answers.order(created_at: :desc).page(params[:page]) ) %>");

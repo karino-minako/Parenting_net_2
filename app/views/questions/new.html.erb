@@ -1,2 +1,14 @@
-<h1>Questions#new</h1>
-<p>Find me in app/views/questions/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 col-sm-12">
+      <h3>新規質問</h3>
+      <%= render 'layouts/errors', obj: @question %>
+      <%= render 'posts/form', obj: @question %>
+    </div>
+
+    <div class="col-md-3 col-sm-12 search">
+      <%= render 'posts/search' %>
+    </div>
+
+  </div>
+</div>
